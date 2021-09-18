@@ -1,0 +1,20 @@
+given an integer array nums where the elements are sorted in ascending order, convert it to a height-balanced binary search tree.
+
+A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than one.
+
+
+
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        
+        if not nums: return None
+        
+		# Find the middle point which you can define as root
+        length = len(nums)
+        middle = length//2
+        
+        node = TreeNode(nums[middle])
+        node.left = self.sortedArrayToBST(nums[:middle])
+        node.right = self.sortedArrayToBST(nums[middle+1:])
+        
+        return node
