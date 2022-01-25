@@ -1,0 +1,19 @@
+
+'''
+Replace one character with another in python
+'''
+
+ch1 ='a'
+ch2 = 'p'
+arr = "apples"
+arr.replace("a", "p")
+for char in range(len(arr)):
+    if arr[char] == ch1:
+        print(arr[:char], arr[char+1:])
+        arr = arr[:char] + ch2 + arr[char + 1:]
+    elif arr[char] == ch2:
+        print(arr[:char], arr[char+1:])
+        arr = arr[:char] + ch1 + arr[char + 1:]
+    else:
+        pass
+print(arr)

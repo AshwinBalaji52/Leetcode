@@ -1,0 +1,29 @@
+#carry count addition
+
+num1 = [1, 2]
+#num1 = list(num1)
+num2 = [9]
+count = 0
+carry = 0
+zero = []
+if len(num1)<len(num2):
+    diff = len(num2)-len(num1)
+    for i in (range(1, diff+1)):
+        zero.append(0)
+    num1 = zero + num1
+    #print(num1)
+elif len(num2)<len(num1):
+    diff = len(num1)-len(num2)
+    for i in (range(1, diff+1)):
+        zero.append(0)
+    num2 = zero + num2
+    #print(num2)
+print(num1, num2)
+for digit in range(-1, -len(num1)-1, -1):
+    print("sum including carry:",num1[digit]+num2[digit]+carry)
+    if (num1[digit]+num2[digit]+carry) > 9 :
+        carry=1
+        count+=1
+    else:
+        carry = 0
+print("carry count:",count)
